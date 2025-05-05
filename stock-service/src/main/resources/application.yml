@@ -1,0 +1,7 @@
+server:
+    port: 9084
+
+logging:
+    level:
+        root: INFO
+        com.roopy.stock: DEBUG

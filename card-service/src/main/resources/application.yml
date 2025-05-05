@@ -1,0 +1,7 @@
+server:
+    port: 9082
+
+logging:
+    level:
+        root: INFO
+        com.roopy.card: DEBUG

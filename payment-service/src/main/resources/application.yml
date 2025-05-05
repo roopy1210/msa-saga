@@ -1,0 +1,18 @@
+server:
+    port: 8081
+
+axon:
+    axonserver:
+        enabled: true  # Axon Server 연결 활성화
+        servers: localhost:8124  # Axon Server의 gRPC 포트 (서버 주소와 포트)
+        devmode:
+            enabled: true  # 개발 모드 활성화 (디버그용)
+    serializer:
+        general: jackson  # 메시지 직렬화 방식
+        events: jackson   # 이벤트 직렬화 방식
+        messages: jackson  # 메시지 직렬화 방식
+
+logging:
+    level:
+        root: INFO  # 루트 로깅 수준
+        com.roopy.payment: DEBUG  # `payment` 관련 로깅은 DEBUG로 설정

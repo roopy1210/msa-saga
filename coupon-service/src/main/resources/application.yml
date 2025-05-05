@@ -1,0 +1,7 @@
+server:
+    port: 9083
+
+logging:
+    level:
+        root: INFO
+        com.roopy.coupon: DEBUG

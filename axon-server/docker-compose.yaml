@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  axonserver:
+    image: axoniq/axonserver:latest
+    container_name: axonserver
+    ports:
+      - "8024:8024"     # Dashboard
+      - "8124:8124"
+    environment:
+      - AXONIQ_AXONSERVER_NAME=axonserver
+      - AXONIQ_AXONSERVER_HOSTNAME=localhost
+      - AXONIQ_AXONSERVER_DEVMODE_ENABLED=true   # devmode 활성화
+      - AXONIQ_AXONSERVER_LOGGING_LEVEL=INFO
+    volumes:
+      - ./axonserver-data:/data
+      - ./axonserver-events:/eventdata
+      - ./axonserver-log:/axonserver/log
+    networks:
+      - axon-net
+
+networks:
+  axon-net:
+    name: axon-net
