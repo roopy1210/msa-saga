@@ -1,5 +1,20 @@
 server:
-    port: 9082
+    port: 10001
+
+spring:
+    kafka:
+        bootstrap-servers: localhost:9092
+        consumer:
+            group-id: pg-group
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+            transaction-id-prefix: card-tx-
+        listener:
+            ack-mode: record
 
 logging:
     level:

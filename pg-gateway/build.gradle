@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.roopy'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_18
+	targetCompatibility = JavaVersion.VERSION_18
+}
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+// Spring Boot 기본
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// kafka
+	implementation 'org.springframework.kafka:spring-kafka'
+
+	// Optional: JSON 변환을 위한 Jackson
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// 테스트
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

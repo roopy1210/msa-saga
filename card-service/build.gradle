@@ -27,6 +27,12 @@ dependencies {
 	// javax
 	implementation 'javax.inject:javax.inject:1'
 
+	// kafka
+	implementation 'org.springframework.kafka:spring-kafka'
+
+	// Optional: JSON 변환을 위한 Jackson
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+
 	// lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
