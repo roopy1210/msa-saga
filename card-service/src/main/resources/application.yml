@@ -9,10 +9,14 @@ spring:
             auto-offset-reset: earliest
             key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
             value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            isolation-level: read_committed
         producer:
             key-serializer: org.apache.kafka.common.serialization.StringSerializer
             value-serializer: org.apache.kafka.common.serialization.StringSerializer
             transaction-id-prefix: card-tx-
+            acks: all
+            retries: 3
+            enable-idempotence: true
         listener:
             ack-mode: record
 
@@ -20,3 +24,4 @@ logging:
     level:
         root: INFO
         com.roopy.card: DEBUG
+        org.apache.kafka.clients.producer: DEBUG
